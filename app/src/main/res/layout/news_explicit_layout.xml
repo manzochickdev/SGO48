@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="news"
+            type="xyz.manzodev.sgo48.model.News" />
+        <import type="xyz.manzodev.sgo48.utils.Font"></import>
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/news_container"
+        android:paddingBottom="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:id="@+id/top_holder"
+            android:background="@color/underline"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="12dp"></View>
+        <ImageView
+            android:scaleType="centerCrop"
+            android:layout_below="@id/top_holder"
+            setImageUrl="@{news.img}"
+            android:id="@+id/iv_news"
+            android:layout_width="100dp"
+            android:layout_height="100dp"></ImageView>
+
+        <TextView
+            android:textColor="@color/black"
+            setFont="@{Font.TEXT_REGULAR}"
+            android:textSize="16sp"
+            android:layout_alignTop="@id/iv_news"
+            android:layout_marginLeft="12dp"
+            android:text="@{news.title}"
+            android:id="@+id/tv_title"
+            android:layout_toRightOf="@id/iv_news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TextView>
+        <LinearLayout
+            android:layout_marginTop="4dp"
+            android:layout_alignLeft="@id/tv_title"
+            android:layout_below="@id/tv_title"
+            android:orientation="horizontal"
+            android:id="@+id/news_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/ic_author"
+                android:layout_width="@dimen/icon"
+                android:layout_height="@dimen/icon"></ImageView>
+            <TextView
+                android:text="@{news.author}"
+                setFont="@{Font.TEXT_LIGHT}"
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+            <ImageView
+                android:layout_marginLeft="8dp"
+                android:src="@drawable/ic_time"
+                android:layout_width="@dimen/icon"
+                android:layout_height="@dimen/icon"></ImageView>
+            <TextView
+                setFont="@{Font.TEXT_LIGHT}"
+                android:layout_marginLeft="4dp"
+                android:id="@+id/tv_time"
+                android:text="@{news.timeStamp}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></TextView>
+        </LinearLayout>
+        <TextView
+            android:lineSpacingExtra="2dp"
+            setFont="@{Font.TEXT_LIGHT}"
+            android:layout_marginTop="4dp"
+            android:text="@{news.summary}"
+            android:layout_alignLeft="@id/tv_title"
+            android:layout_below="@id/news_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TextView>
+    </RelativeLayout>
+</layout>
